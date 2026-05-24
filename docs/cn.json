@@ -1,0 +1,13 @@
+{
+    "slides": {
+        "intro": {
+            "title": "LiME-TM: 支持在 MCU 上训练的轻量级机器学习框架"
+        }
+    },
+    "menubar": {
+        "chooselanguage": "选择语言"
+    },
+    "notescanvas": {},
+    "chalkboard": {},
+    "customcontrols": {}
+}

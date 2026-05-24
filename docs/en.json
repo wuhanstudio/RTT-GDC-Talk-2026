@@ -1,0 +1,13 @@
+{
+    "slides": {
+        "intro": {
+            "title": "LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs"
+        }
+    },
+    "menubar": {
+        "chooselanguage": "Choose language"
+    },
+    "notescanvas": {},
+    "chalkboard": {},
+    "customcontrols": {}
+}
