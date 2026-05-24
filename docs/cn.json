@@ -1,7 +1,47 @@
 {
     "slides": {
         "intro": {
-            "title": "LiME-TM: 支持在 MCU 上训练的轻量级机器学习框架"
+            "title": "LiME-TM: 支持在 MCU 上训练的轻量级机器学习框架",
+            "ml_approaches": "机器学习: 随机森林, 决策树, 神经网络, Tsetlin Machine (TM) ...",
+            "language": "语言"
+        },
+        "Q1": {
+            "question1": "神经网络：适合 嵌入式 MCU 吗?",
+            "neural_networks": "神经网络",
+            "computation_intensive": "大量计算 (GPU)",
+            "memory_hungry": "内存消耗大",
+            "floating_point": "浮点运算",
+            "mcus": "MCUs",
+            "limited_computation_power": "计算能力有限 (无 GPU)",
+            "limited_memory": "内存有限 (例如: 256KB RAM)",
+            "integer_operations": "INT32, INT16, INT8"
+        },
+        "Q2": {
+            "question2": "为什么在 MCU 上训练模型很困难？"
+        },
+        "on_device_training": {
+            "data_distribution_shift": "数据分布变化",
+            "evolving_environment": " 环境动态改变",
+            "sensor_degradation": "传感器老化",
+            "user_personalization": "适应不同用户"
+        },
+        "Q3": {
+            "question3": "为什么在 MCU 上训练模型很困难？"
+        },
+        "challenges": {
+            "resource_constraints": "MCU 资源限制",
+            "memory_constraints": "内存限制",
+            "compute_constraints": "计算限制",
+            "energy_constraints": "功耗限制"
+        },
+        "Q4": {
+            "question4": "简介：Tsetlin Machine"
+        },
+        "tsetlin_machine_inference": {
+            "tsetlin_machine_inference": "Tsetlin Machine (推理)"
+        },
+        "tsetlin_machine_training": {
+            "tsetlin_machine_training": "Tsetlin Machine (训练)"
         }
     },
     "menubar": {

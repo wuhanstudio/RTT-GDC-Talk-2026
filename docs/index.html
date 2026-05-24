@@ -47,12 +47,15 @@
                     <span class="menu-title" style="display: none">Overview</span>
                     <h3 class="r-fit-text" data-i18n="title" style="margin-bottom: 0;">LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs</h3>
                     <p class="name" style="font-size: 25px; text-align: right; margin-top: 0;">On-Device Training</p>
+                    
                     <p class="name" style="font-size: 25px;">Han Wu, Newcastle University</p>
+
+                    <img src="images/overview.png" />
+                    <p style="font-size: 25px;" class="fragment" data-i18n="ml_approaches">Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machines (TM) ...</p>
 
                     <div class="langchooser flags" dir="ltr">
                         <label>
-                        <p style="font-size: 25px;">Language</p>
-
+                            <p style="font-size: 15px;", data-i18n="language">Language</p>
                         </label>
                         <label>
                             <input type="radio" name="langradios" value="en" checked><img src="images/en.png">
@@ -66,8 +69,107 @@
                     </aside>
                 </section>
                 
-                <section>
+                <section id="Q1">
+                    <h1 data-i18n="question1" class="r-fit-text">Are Neural Networks suitable for MCUs?</h1>
+                    <img id="app" class="fragment" src="images/app_en.png"  style="margin-top: 0; width: 80%;"/>
+                    <ul style="font-size: 30px;">
+                        <li class="fragment" data-i18n="neural_networks">Neural Networks</li>
+                        <ul>
+                            <li class="fragment" data-i18n="computation_intensive">Computation intensive (GPU)</li>
+                            <li class="fragment" data-i18n="memory_hungry">Memory hungry</li>
+                            <li class="fragment" data-i18n="floating_point">Floating Point</li>
+                        </ul>
+                        <li class="fragment" data-i18n="mcus">MCUs</li>
+                        <ul>
+                            <li class="fragment" data-i18n="limited_computation_power">Limited computation power (no GPU)</li>
+                            <li class="fragment" data-i18n="limited_memory">Limited memory (e.g., 256KB RAM)</li>
+                            <li class="fragment" data-i18n="integer_operations">INT32, INT16, INT8</li>
+                    </ul>
+                </section>
 
+                <section data-background-video="images/ESP32.mp4" data-background-video-muted data-menu-title="ESP32 Demo"  data-state="hide-menubar">
+                </section>
+
+                <section id="benchmark" data-markdown data-state="hide-menubar">
+                    <textarea data-template>
+                        #### Benchmark on ESP32 (Arduino)
+                        | Model           | Accuracy | Training | Inference |
+                        | --------------- | -------- | -------- | --------- |
+                        | **LiME-TM (8-bit)** | 93.86%   | 0.37 ms  | 1.20 ms   |
+                        | **LiME-TM (4-bit)** | 93.22%   | 0.32 ms  | 1.01 ms   |
+                        <br />
+                        | 2D-CNN          | 95.04%   | 114.2 ms | 24.6 ms   |
+                        | FC (10+50)      | 72.61%   | 27.0 ms  | 0.89 ms   |
+                        | FC (10×10)      | 77.50%   | 27.3 ms  | 0.97 ms   |
+                        | FC (1×10)       | 82.45%   | 23.9 ms  | 0.48 ms   |
+                    </textarea>
+
+                </section>
+
+                <section id="Q2">
+                    <h1 data-i18n="question2" class="r-fit-text"> Why is On-Device Training Important?</h1>
+                </section>
+
+                <section id="on_device_training">
+                    <h3 data-i18n="data_distribution_shift">Data Distribution Shift</h3>
+                    <ul style="font-size: 30px;">
+                        <li data-i18n="evolving_environment">Evolving Environment</li>
+                        <li data-i18n="sensor_degradation">Sensor Degradation</li>
+                        <li data-i18n="user_personalization">User Personalization</li>
+                    </ul>
+                    <img width=80% id="emg" src="images/emg_en.png" class="fragment" />
+
+                    <aside class="notes">
+                        The main reason is data distribution shift. If we train a model on a PC and then deploy the model on MCUs, the real-world data distribution may not be the same as the training data for several reasons: the environment is evolving, sensors will degrade over time, and people are different. For example, in the EMG dataset, the project Shengyu has been working on. The sensor measures the electrical activity of muscles and predicts the hand gesture. If we train the model on the server using data from a group of users, the model accuracy is 85%, but if we continue to train the model on the device using personal data, the accuracy can be improved to 96%. If we personalize the model for each user, we can achieve much better performance. The problem here is personal data is sensitive, and it cannot be uploaded to the server for training. We need to train on the device.
+                    </aside>
+                </section>
+
+                <section id="Q3">
+                    <h1 data-i18n="question3" class="r-fit-text">Why training on MCUs is challenging?</h1>
+                </section>
+
+                <section id="challenges">
+                    <h3 data-i18n="resource_constraints">Resource Constraints</h3>
+                    <ul style="font-size: 25px;">
+                        <li data-i18n="memory_constraints">Memory: GB to KB</li>
+                        <li data-i18n="compute_constraints">Compute: GHz to MHz</li>
+                        <li data-i18n="energy_constraints">Energy: W to mW</li>
+                    </ul>
+                    <div class="r-hstack">
+                        <img width=80% src="images/tflm.png" class="fragment" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <img width=80% src="images/limetm.png" class="fragment" />
+                    </div>
+
+                    <aside class="notes">
+                        The main challenge is resource constraints. For example, my laptop has 8GB of memory, but a MCU has only KB of memory. My laptop has a 3GHz CPU, but a MCUs run at MHz. My laptop or cloud servers also has a stable power supply, but a MCU is usually powered by a small battery, so its performance is way worse than a laptop or cloud servers.
+
+                        As a result, TensorFlow Lite only support training on IOS, Android, but not MCUs. You know, IOS and Android uses Unix and Linux Operating System, there is no way to run Linux on a MCU, such as ESP32. 
+                        
+                        We also did a review of on-device training frameworks, and as you can see here, our framework requires much less memory. You may wonder, this one seems to be the best, but it is a very small neural network with only 1 hidden layer and 10 neurons. The accuracy won't be very high. You know, theoretically we can have a neural network with only 1 neuron, it is memory efficient but not very helpful. For a useful 2D conv NN, it requires much more memory. Our framework does not hurt the accuracy. For inference, we have achieved state-of-the-art.
+                    </aside>
+                </section>
+
+                <section data-background-video="images/STM32L4.mp4" data-background-video-muted data-menu-title="STM32L4 Demo"  data-state="hide-menubar">
+                </section>
+
+                <section data-background-video="images/STM32F1.mp4" data-background-video-muted data-menu-title="STM32F1 Demo"  data-state="hide-menubar">
+                </section>
+
+                <section id="Q4">
+                    <h1 data-i18n="question4" class="r-fit-text">Introduction to Tsetlin Machine</h1>
+                </section>
+
+                <section id="tsetlin_machine_inference">
+                    <h1 data-i18n="tsetlin_machine_inference" class="r-fit-text">Tsetlin Machine (Inference)</h1>
+                </section>
+
+                <section id="tsetlin_machine_training">
+                    <h1 data-i18n="tsetlin_machine_training" class="r-fit-text">Tsetlin Machine (Training)</h1>
+                    <p>Random Number Generator</p>
+                </section>
+
+                <section data-background-video="images/Arduino.mp4" data-background-video-muted data-menu-title="Arduino Demo"  data-state="hide-menubar">
                 </section>
 
                 <section data-state="hide-menubar">
@@ -76,6 +178,12 @@
                         <p><a href="https://tm.wuhanstudio.uk/">https://tm.wuhanstudio.uk</a></p>
                     </div>
                     <img src="images/qrcode.png" width="25%" />
+                    <div class="fragment" style="font-size: 30px;">
+                        <ul>
+                            <li>On-Device Training: 20 KB SRAM</li>
+                            <li>On-Device Inference: 2 KB SRAM</li>
+                        </ul>
+                    </div>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://github.com/wuhanstudio/LiME-TM.c">Source Code</a></p>
                 </section>
 
@@ -92,6 +200,7 @@
         <script src="plugin/menu/menu.js"></script>
         <script src="plugin/math/math.js"></script>
         <script src="plugin/highlight/highlight.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
         <script src="plugin/internation/internation.js"></script>
 
         <script>
@@ -100,7 +209,7 @@
                 hash: true,
                 // width: "100%",
                 // height:"100%",
-                plugins: [ RevealHighlight, RevealMath, RevealMenu, RevealChalkboard, RevealCustomControls, Internation ],
+                plugins: [ RevealHighlight, RevealMath, RevealMenu, RevealChalkboard, RevealCustomControls, RevealMarkdown, Internation ],
                 mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
                 config: 'TeX-AMS_HTML-full',
                 // pass other options into `MathJax.Hub.Config()`
@@ -163,13 +272,38 @@
                 // showNotes: true,
             });
         </script>
+
         <!-- The script below closes the fake 'select' if an option is chosen;-->
-    <script>
-        let dropdown = document.querySelector('.menubar .langchooser');
-        let label = document.querySelector('.menubar .dropdown > label');
-        dropdown.addEventListener("click", function(e) {
-            label.click();
-        }, false);
-    </script>
+        <script>
+            let dropdown = document.querySelector('.menubar .langchooser');
+            let label = document.querySelector('.menubar .dropdown > label');
+            dropdown.addEventListener("click", function(e) {
+                console.log(e.target);
+                label.click();
+                if (e.target.value === "en") {
+                    document.getElementById("app").src = "images/app_en.png";
+                    document.getElementById("emg").src = "images/emg_en.png";
+                } else if (e.target.value === "cn") {
+                    document.getElementById("app").src = "images/app_cn.png";
+                    document.getElementById("emg").src = "images/emg_cn.png";
+                }
+            }, false);
+        
+            document.querySelectorAll('input[name="langradios"]').forEach(radio => {
+                radio.addEventListener('change', function () {
+                console.log("Selected language:", this.value);
+
+                if (this.value === "en") {
+                    console.log("English selected");
+                    document.getElementById("app").src = "images/app_en.png";
+                    document.getElementById("emg").src = "images/emg_en.png";
+                } else if (this.value === "cn") {
+                    console.log("Chinese selected");
+                    document.getElementById("app").src = "images/app_cn.png";
+                    document.getElementById("emg").src = "images/emg_cn.png";
+                }
+            });
+    });
+        </script>
     </body>
 </html>

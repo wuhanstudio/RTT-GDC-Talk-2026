@@ -1,7 +1,48 @@
 {
     "slides": {
         "intro": {
-            "title": "LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs"
+            "title": "LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs",
+            "ml_approaches": "Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machines (TM) ...",
+            "language": "Language"
+        },
+        "Q1": {
+            "question1": "Are Neural Networks suitable for MCUs?",
+            "neural_networks": "Neural Networks",
+            "computation_intensive": "Computation intensive (GPU)",
+            "memory_hungry": "Memory hungry",
+            "floating_point": "Floating Point",
+            "mcus": "MCUs",
+            "limited_computation_power": "Limited computation power (no GPU)",
+            "limited_memory": "Limited memory (e.g., 256KB RAM)",
+            "integer_operations": "INT32, INT16, INT8"
+        },
+        "benchmark": {},
+        "Q2": {
+            "question2": "Why is On-Device Training Important?"
+        },
+        "on_device_training": {
+            "data_distribution_shift": "Data Distribution Shift",
+            "evolving_environment": "Evolving Environment",
+            "sensor_degradation": "Sensor Degradation",
+            "user_personalization": "User Personalization"
+        },
+        "Q3": {
+            "question3": "Why training on MCUs is challenging?"
+        },
+        "challenges": {
+            "resource_constraints": "Resource Constraints",
+            "memory_constraints": "Memory: GB to KB",
+            "compute_constraints": "Compute: GHz to MHz",
+            "energy_constraints": "Energy: W to mW"
+        },
+        "Q4": {
+            "question4": "Introduction to Tsetlin Machine"
+        },
+        "tsetlin_machine_inference": {
+            "tsetlin_machine_inference": "Tsetlin Machine (Inference)"
+        },
+        "tsetlin_machine_training": {
+            "tsetlin_machine_training": "Tsetlin Machine (Training)"
         }
     },
     "menubar": {

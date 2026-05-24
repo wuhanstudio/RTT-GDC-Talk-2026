@@ -113,8 +113,8 @@ body:not(.hide-menubar) .reveal.ready .menubar {
     border-radius: 40px;
     /* border: 4px solid #1a1626; */
     margin: 0;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
