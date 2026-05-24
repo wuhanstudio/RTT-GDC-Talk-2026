@@ -62,7 +62,7 @@
   background: none;
   padding: 0 3vmin;
   z-index: 1;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.5); */
   height: clamp(50px, 8vmax, 80px);
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
@@ -140,13 +140,13 @@ body:not(.hide-menubar) .reveal.ready .menubar {
 .menubar .dropdown {
     position: relative;
     display: inline-block;
-    font-size: 16px;
+    font-size: 10px;
     color: #000;
 }
 
 @media screen and (min-width: 768px) {
     .menubar .dropdown {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 

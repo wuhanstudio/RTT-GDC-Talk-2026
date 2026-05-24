@@ -11,13 +11,13 @@
             "computation_intensive": "大量计算 (GPU)",
             "memory_hungry": "内存消耗大",
             "floating_point": "浮点运算",
-            "mcus": "MCUs",
+            "mcus": "MCU",
             "limited_computation_power": "计算能力有限 (无 GPU)",
             "limited_memory": "内存有限 (例如: 256KB RAM)",
             "integer_operations": "INT32, INT16, INT8"
         },
         "Q2": {
-            "question2": "为什么在 MCU 上训练模型很困难？"
+            "question2": "为什么要在 MCU 上训练模型？"
         },
         "on_device_training": {
             "data_distribution_shift": "数据分布变化",
@@ -35,7 +35,7 @@
             "energy_constraints": "功耗限制"
         },
         "Q4": {
-            "question4": "简介：Tsetlin Machine"
+            "question4": "简介: Tsetlin Machine"
         },
         "tsetlin_machine_inference": {
             "tsetlin_machine_inference": "Tsetlin Machine (推理)"
