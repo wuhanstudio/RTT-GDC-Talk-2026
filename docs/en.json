@@ -17,6 +17,17 @@
             "integer_operations": "INT32, INT16, INT8"
         },
         "benchmark": {},
+        "TM": {
+            "question1": "Are Neural Networks suitable for MCUs?",
+            "accuracy": "Accuracy",
+            "training": "Training",
+            "inference": "Inference",
+            "operation": "Operations",
+            "conv": "Convolution",
+            "opt": "Optimizer",
+            "gradient": "Gradient Descent",
+            "reinforcement": "Reinforcement Feedback"
+        },
         "Q2": {
             "question2": "Why is On-Device Training Important?"
         },
@@ -26,15 +37,6 @@
             "sensor_degradation": "Sensor Degradation",
             "user_personalization": "User Personalization"
         },
-        "Q3": {
-            "question3": "Why training on MCUs is challenging?"
-        },
-        "challenges": {
-            "resource_constraints": "Resource Constraints",
-            "memory_constraints": "Memory: GB to KB",
-            "compute_constraints": "Compute: GHz to MHz",
-            "energy_constraints": "Energy: W to mW"
-        },
         "Q4": {
             "question4": "Introduction to Tsetlin Machine"
         },
@@ -42,6 +44,9 @@
             "tsetlin_machine_inference": "Tsetlin Machine (Inference)"
         },
         "tsetlin_machine_training": {
+            "tsetlin_machine_training": "Tsetlin Machine (Training)"
+        },
+        "tsetlin_machine_feedback": {
             "tsetlin_machine_training": "Tsetlin Machine (Training)"
         }
     },

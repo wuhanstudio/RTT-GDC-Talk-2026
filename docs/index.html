@@ -70,9 +70,9 @@
                 </section>
                 
                 <section id="Q1">
-                    <h1 data-i18n="question1" class="r-fit-text">Are Neural Networks suitable for MCUs?</h1>
+                    <h4 data-i18n="question1" class="">Are Neural Networks suitable for MCUs?</h4>
                     <img id="app" class="fragment" src="images/app_en.png"  style="margin-top: 0; width: 80%;"/>
-                    <ul style="font-size: 30px;">
+                    <ul style="font-size: 25px;">
                         <li class="fragment" data-i18n="neural_networks">Neural Networks</li>
                         <ul>
                             <li class="fragment" data-i18n="computation_intensive">Computation intensive (GPU)</li>
@@ -92,16 +92,16 @@
                 <section data-background-video="images/ESP32.mp4" data-background-video-muted data-menu-title="ESP32 Demo"  data-state="hide-menubar">
                 </section>
 
-                <section id="benchmark" data-state="hide-menubar">
+                <section id="benchmark">
                     <h4>Benchmark on ESP32 (Arduino)</h4>
 
                     <table style="font-size: 30px;">
                         <thead>
                             <tr>
-                                <th>Model (MNIST)</th>
-                                <th>Accuracy</th>
-                                <th>Training</th>
-                                <th>Inference</th>
+                                <th data-i18n="model">Model</th>
+                                <th data-i18n="accuracy">Accuracy</th>
+                                <th data-i18n="training">Training</th>
+                                <th data-i18n="inference">Inference</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -152,7 +152,7 @@
                 </section>
 
                 <section id="TM">
-                    <h1 data-i18n="question1" class="r-fit-text fragment" data-fragment-index="4">Are Neural Networks suitable for MCUs?</h1>
+                    <h4 data-i18n="question1" class="fragment" data-fragment-index="4">Are Neural Networks suitable for MCUs?</h4>
                     <table style="font-size: 30px;">
                         <thead>
                             <tr>
@@ -163,17 +163,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Accuracy</td>
+                                <td data-i18n="accuracy">Accuracy</td>
                                 <td>95.04%</td>
                                 <td>93.86%</td>
                             </tr>
                             <tr>
-                                <td>Training</td>
+                                <td data-i18n="training">Training</td>
                                 <td>114.2 ms</td>
                                 <td>0.37 ms</td>
                             </tr>
                             <tr>
-                                <td>Inference</td>
+                                <td data-i18n="inference">Inference</td>
                                 <td>24.6 ms</td>
                                 <td>1.20 ms</td>
                             </tr>
@@ -184,8 +184,8 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr class="fragment" data-fragment-index="1">
-                                <td>Operations</td>
-                                <td>Convolution</td>
+                                <td data-i18n="operation">Operations</td>
+                                <td data-i18n="conv">Convolution</td>
                                 <td>&amp; +</td>
                             </tr>
                             <tr class="fragment" data-fragment-index="2">
@@ -194,17 +194,17 @@
                                 <td>1</td>
                             </tr>
                             <tr class="fragment" data-fragment-index="3">
-                                <td>Optimizer</td>
-                                <td>Gradient Descent</td>
-                                <td>Reinforcement Feedback</td>
+                                <td data-i18n="opt">Optimizer</td>
+                                <td data-i18n="gradient">Gradient Descent</td>
+                                <td data-i18n="reinforcement">Reinforcement Feedback</td>
                             </tr>
                         </tbody>
                     </table>
-                    <img id="app" class="fragment" src="images/app_en.png"  style="margin-top: 0; width: 80%;"/>
+                    <img id="app2" class="fragment" src="images/app_en.png" style="width: 80%;"/>
                 </section>
 
                 <section id="Q2">
-                    <h1 data-i18n="question2" class="r-fit-text"> Why is On-Device Training Important?</h1>
+                    <h2 data-i18n="question2" class="r-fit-text"> Why is On-Device Training Important?</h2>
                 </section>
 
                 <section id="on_device_training">
@@ -228,7 +228,7 @@
                 </section>
 
                 <section id="Q4">
-                    <h1 data-i18n="question4" class="r-fit-text">Introduction to Tsetlin Machine</h1>
+                    <h3 data-i18n="question4">Introduction to Tsetlin Machine</h3>
 
                     <img src="images/truth_table.png" class="fragment"/>
                 </section>
@@ -241,7 +241,7 @@
 
                 <section id="tsetlin_machine_training">
                     <h3 data-i18n="tsetlin_machine_training">Tsetlin Machine (Training)</h3>
-                    <img src="images/pairwise.png" width="80%"/>
+                    <img src="images/pairwise.png" width="80%" style="margin-top: 0;"/>
                     <img src="images/automaton.png" width="40%" class="fragment"/>
                 </section>
 
@@ -363,9 +363,11 @@
                 label.click();
                 if (e.target.value === "en") {
                     document.getElementById("app").src = "images/app_en.png";
+                    document.getElementById("app2").src = "images/app_en.png";
                     document.getElementById("emg").src = "images/emg_en.png";
                 } else if (e.target.value === "cn") {
                     document.getElementById("app").src = "images/app_cn.png";
+                    document.getElementById("app2").src = "images/app_cn.png";
                     document.getElementById("emg").src = "images/emg_cn.png";
                 }
             }, false);

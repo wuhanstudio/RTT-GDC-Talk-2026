@@ -16,6 +16,23 @@
             "limited_memory": "内存有限 (例如: 256KB RAM)",
             "integer_operations": "INT32, INT16, INT8"
         },
+        "benchmark": {
+            "model": "模型",
+            "accuracy": "准确率",
+            "training": "训练",
+            "inference": "推理"
+        },
+        "TM": {
+            "question1": "神经网络：适合 嵌入式 MCU 吗?",
+            "accuracy": "准确率",
+            "training": "训练",
+            "inference": "推理",
+            "operation": "运算",
+            "conv": "卷积",
+            "opt": "优化",
+            "gradient": "梯度下降",
+            "reinforcement": "强化学习"
+        },
         "Q2": {
             "question2": "为什么要在 MCU 上训练模型？"
         },
@@ -25,15 +42,6 @@
             "sensor_degradation": "传感器老化",
             "user_personalization": "适应不同用户"
         },
-        "Q3": {
-            "question3": "为什么在 MCU 上训练模型很困难？"
-        },
-        "challenges": {
-            "resource_constraints": "MCU 资源限制",
-            "memory_constraints": "内存限制",
-            "compute_constraints": "计算限制",
-            "energy_constraints": "功耗限制"
-        },
         "Q4": {
             "question4": "简介: Tsetlin Machine"
         },
@@ -41,6 +49,9 @@
             "tsetlin_machine_inference": "Tsetlin Machine (推理)"
         },
         "tsetlin_machine_training": {
+            "tsetlin_machine_training": "Tsetlin Machine (训练)"
+        },
+        "tsetlin_machine_feedback": {
             "tsetlin_machine_training": "Tsetlin Machine (训练)"
         }
     },
