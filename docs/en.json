@@ -2,7 +2,7 @@
     "slides": {
         "intro": {
             "title": "LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs",
-            "ml_approaches": "Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machines (TM) ...",
+            "ml_approaches": "Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machine (TM) ...",
             "language": "Language"
         },
         "Q1": {

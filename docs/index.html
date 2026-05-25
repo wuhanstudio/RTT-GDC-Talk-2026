@@ -51,7 +51,7 @@
                     <p class="name" style="font-size: 25px;">Han Wu, Newcastle University</p>
 
                     <img src="images/overview.png" />
-                    <p style="font-size: 25px;" class="fragment" data-i18n="ml_approaches">Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machines (TM) ...</p>
+                    <p style="font-size: 25px;" class="fragment" data-i18n="ml_approaches">Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machine (TM) ...</p>
 
                     <div class="langchooser flags" dir="ltr">
                         <label>
@@ -79,31 +79,128 @@
                             <li class="fragment" data-i18n="memory_hungry">Memory hungry</li>
                             <li class="fragment" data-i18n="floating_point">Floating Point</li>
                         </ul>
+
                         <li class="fragment" data-i18n="mcus">MCUs</li>
                         <ul>
                             <li class="fragment" data-i18n="limited_computation_power">Limited computation power (no GPU)</li>
                             <li class="fragment" data-i18n="limited_memory">Limited memory (e.g., 256KB RAM)</li>
                             <li class="fragment" data-i18n="integer_operations">INT32, INT16, INT8</li>
+                        </ul>
                     </ul>
                 </section>
 
                 <section data-background-video="images/ESP32.mp4" data-background-video-muted data-menu-title="ESP32 Demo"  data-state="hide-menubar">
                 </section>
 
-                <section id="benchmark" data-markdown data-state="hide-menubar">
-                    <textarea data-template>
-                        #### Benchmark on ESP32 (Arduino)
-                        | Model           | Accuracy | Training | Inference |
-                        | --------------- | -------- | -------- | --------- |
-                        | **LiME-TM (8-bit)** | 93.86%   | 0.37 ms  | 1.20 ms   |
-                        | **LiME-TM (4-bit)** | 93.22%   | 0.32 ms  | 1.01 ms   |
-                        <br />
-                        | 2D-CNN          | 95.04%   | 114.2 ms | 24.6 ms   |
-                        | FC (10+50)      | 72.61%   | 27.0 ms  | 0.89 ms   |
-                        | FC (10×10)      | 77.50%   | 27.3 ms  | 0.97 ms   |
-                        | FC (1×10)       | 82.45%   | 23.9 ms  | 0.48 ms   |
-                    </textarea>
+                <section id="benchmark" data-state="hide-menubar">
+                    <h4>Benchmark on ESP32 (Arduino)</h4>
 
+                    <table style="font-size: 30px;">
+                        <thead>
+                            <tr>
+                                <th>Model (MNIST)</th>
+                                <th>Accuracy</th>
+                                <th>Training</th>
+                                <th>Inference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2D-CNN</td>
+                                <td>95.04%</td>
+                                <td>114.2 ms</td>
+                                <td>24.6 ms</td>
+                            </tr>
+                            <tr>
+                                <td>FC (10+50)</td>
+                                <td>72.61%</td>
+                                <td>27.0 ms</td>
+                                <td>0.89 ms</td>
+                            </tr>
+                            <tr>
+                                <td>FC (10×10)</td>
+                                <td>77.50%</td>
+                                <td>27.3 ms</td>
+                                <td>0.97 ms</td>
+                            </tr>
+                            <tr>
+                                <td>FC (1×10)</td>
+                                <td>82.45%</td>
+                                <td>23.9 ms</td>
+                                <td>0.48 ms</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>LiME-TM (8-bit)</td>
+                                <td>93.86%</td>
+                                <td>0.37 ms</td>
+                                <td>1.20 ms</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>LiME-TM (4-bit)</td>
+                                <td>93.22%</td>
+                                <td>0.32 ms</td>
+                                <td>1.01 ms</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="TM">
+                    <h1 data-i18n="question1" class="r-fit-text fragment" data-fragment-index="4">Are Neural Networks suitable for MCUs?</h1>
+                    <table style="font-size: 30px;">
+                        <thead>
+                            <tr>
+                                <th>MNIST Dataset</th>
+                                <th>2D-CNN</th>
+                                <th>Tsetlin Machine (TM)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Accuracy</td>
+                                <td>95.04%</td>
+                                <td>93.86%</td>
+                            </tr>
+                            <tr>
+                                <td>Training</td>
+                                <td>114.2 ms</td>
+                                <td>0.37 ms</td>
+                            </tr>
+                            <tr>
+                                <td>Inference</td>
+                                <td>24.6 ms</td>
+                                <td>1.20 ms</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="fragment" data-fragment-index="1">
+                                <td>Operations</td>
+                                <td>Convolution</td>
+                                <td>&amp; +</td>
+                            </tr>
+                            <tr class="fragment" data-fragment-index="2">
+                                <td>Batch Size</td>
+                                <td>8</td>
+                                <td>1</td>
+                            </tr>
+                            <tr class="fragment" data-fragment-index="3">
+                                <td>Optimizer</td>
+                                <td>Gradient Descent</td>
+                                <td>Reinforcement Feedback</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <img id="app" class="fragment" src="images/app_en.png"  style="margin-top: 0; width: 80%;"/>
                 </section>
 
                 <section id="Q2">
@@ -124,32 +221,6 @@
                     </aside>
                 </section>
 
-                <section id="Q3">
-                    <h1 data-i18n="question3" class="r-fit-text">Why training on MCUs is challenging?</h1>
-                </section>
-
-                <section id="challenges">
-                    <h3 data-i18n="resource_constraints">Resource Constraints</h3>
-                    <ul style="font-size: 25px;">
-                        <li data-i18n="memory_constraints">Memory: GB to KB</li>
-                        <li data-i18n="compute_constraints">Compute: GHz to MHz</li>
-                        <li data-i18n="energy_constraints">Energy: W to mW</li>
-                    </ul>
-                    <div class="r-hstack">
-                        <img width=80% src="images/tflm.png" class="fragment" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <img width=80% src="images/limetm.png" class="fragment" />
-                    </div>
-
-                    <aside class="notes">
-                        The main challenge is resource constraints. For example, my laptop has 8GB of memory, but a MCU has only KB of memory. My laptop has a 3GHz CPU, but a MCUs run at MHz. My laptop or cloud servers also has a stable power supply, but a MCU is usually powered by a small battery, so its performance is way worse than a laptop or cloud servers.
-
-                        As a result, TensorFlow Lite only support training on IOS, Android, but not MCUs. You know, IOS and Android uses Unix and Linux Operating System, there is no way to run Linux on a MCU, such as ESP32. 
-                        
-                        We also did a review of on-device training frameworks, and as you can see here, our framework requires much less memory. You may wonder, this one seems to be the best, but it is a very small neural network with only 1 hidden layer and 10 neurons. The accuracy won't be very high. You know, theoretically we can have a neural network with only 1 neuron, it is memory efficient but not very helpful. For a useful 2D conv NN, it requires much more memory. Our framework does not hurt the accuracy. For inference, we have achieved state-of-the-art.
-                    </aside>
-                </section>
-
                 <section data-background-video="images/STM32L4.mp4" data-background-video-muted data-menu-title="STM32L4 Demo"  data-state="hide-menubar">
                 </section>
 
@@ -158,6 +229,8 @@
 
                 <section id="Q4">
                     <h1 data-i18n="question4" class="r-fit-text">Introduction to Tsetlin Machine</h1>
+
+                    <img src="images/truth_table.png" class="fragment"/>
                 </section>
 
                 <section id="tsetlin_machine_inference">
