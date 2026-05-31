@@ -89,6 +89,24 @@
                     </ul>
                 </section>
 
+                <section id="Q2">
+                    <h2 data-i18n="question2" class="r-fit-text"> Why is On-Device Training Important?</h2>
+                </section>
+
+                <section id="on_device_training">
+                    <h3 data-i18n="data_distribution_shift">Data Distribution Shift</h3>
+                    <ul style="font-size: 30px;">
+                        <li data-i18n="evolving_environment">Evolving Environment</li>
+                        <li data-i18n="sensor_degradation">Sensor Degradation</li>
+                        <li data-i18n="user_personalization">User Personalization</li>
+                    </ul>
+                    <img width=80% id="emg" src="images/emg_en.png" class="fragment" />
+
+                    <aside class="notes">
+                        The main reason is data distribution shift. If we train a model on a PC and then deploy the model on MCUs, the real-world data distribution may not be the same as the training data for several reasons: the environment is evolving, sensors will degrade over time, and people are different. For example, in the EMG dataset, the project Shengyu has been working on. The sensor measures the electrical activity of muscles and predicts the hand gesture. If we train the model on the server using data from a group of users, the model accuracy is 85%, but if we continue to train the model on the device using personal data, the accuracy can be improved to 96%. If we personalize the model for each user, we can achieve much better performance. The problem here is personal data is sensitive, and it cannot be uploaded to the server for training. We need to train on the device.
+                    </aside>
+                </section>
+
                 <section data-background-video="images/ESP32.mp4" data-background-video-muted data-menu-title="ESP32 Demo"  data-state="hide-menubar">
                 </section>
 
@@ -209,24 +227,6 @@
                         <img src="images/tflm.png" class="fragment" width="50%" />
                         <img src="images/limetm.png" class="fragment" width="50%" />
                     </div>
-                </section>
-
-                <section id="Q2">
-                    <h2 data-i18n="question2" class="r-fit-text"> Why is On-Device Training Important?</h2>
-                </section>
-
-                <section id="on_device_training">
-                    <h3 data-i18n="data_distribution_shift">Data Distribution Shift</h3>
-                    <ul style="font-size: 30px;">
-                        <li data-i18n="evolving_environment">Evolving Environment</li>
-                        <li data-i18n="sensor_degradation">Sensor Degradation</li>
-                        <li data-i18n="user_personalization">User Personalization</li>
-                    </ul>
-                    <img width=80% id="emg" src="images/emg_en.png" class="fragment" />
-
-                    <aside class="notes">
-                        The main reason is data distribution shift. If we train a model on a PC and then deploy the model on MCUs, the real-world data distribution may not be the same as the training data for several reasons: the environment is evolving, sensors will degrade over time, and people are different. For example, in the EMG dataset, the project Shengyu has been working on. The sensor measures the electrical activity of muscles and predicts the hand gesture. If we train the model on the server using data from a group of users, the model accuracy is 85%, but if we continue to train the model on the device using personal data, the accuracy can be improved to 96%. If we personalize the model for each user, we can achieve much better performance. The problem here is personal data is sensitive, and it cannot be uploaded to the server for training. We need to train on the device.
-                    </aside>
                 </section>
 
                 <section data-background-video="images/STM32L4.mp4" data-background-video-muted data-menu-title="STM32L4 Demo"  data-state="hide-menubar">
