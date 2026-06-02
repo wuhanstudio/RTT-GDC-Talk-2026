@@ -48,7 +48,7 @@
                     <h3 class="r-fit-text" data-i18n="title" style="margin-bottom: 0;">LiME-TM: A Lightening Fast and Memory Efficient ML Framework for MCUs</h3>
                     <p class="name" style="font-size: 25px; text-align: right; margin-top: 0;">On-Device Training</p>
                     
-                    <p class="name" style="font-size: 25px;">Han Wu, Newcastle University</p>
+                    <p class="name" style="font-size: 25px;">Han Wu, Research Associate, Newcastle University</p>
 
                     <img src="images/overview.png" />
                     <p style="font-size: 25px;" class="fragment" data-i18n="ml_approaches">Machine Learning: Random Forest, Decision Trees, Neural Networks, Tsetlin Machine (TM) ...</p>
@@ -66,6 +66,11 @@
                     </div>
 
                     <aside class="notes">
+                        Let's get started. I'm a RA at Newcastle University, working on Embedded Machine Learning. I'd like to introduce our recent work, LiME-TM, a lightening fast and memory efficient ML framework for MCUs. What makes our framework unique is that it supports on-device training, which means after depoying the model on the hardware, the model can still be trained to improve the accuracy.
+                        <br/>
+                        Our framework is cross-platform, it runs on ESP32, which has 500 KB of SRAM; STM32, which has around 200 KB of SRAM, and even Arduino Uno, which has only 2 KB of SRAM. Well, if arduino uno can run our framework, almost all the MCUs should have sufficient SRAM to run our framework.
+                        <br/>
+                        Before introducing our framework, I would like to first hightlight here, it is not neural network. Because when I mention machine learning, many people may think of neural networks. Of course, neural networks are one of the most popular machine learning models, but not the only one. Random Forests and Decision Trees are also popular, while our framework is based on Tsetlin Machine, or in short, TM. So please keep in mind, our framework is not neural networks, it is Tsetlin Machine, or TM, this is why it is named as LiME-TM.
                     </aside>
                 </section>
                 
@@ -87,6 +92,15 @@
                             <li class="fragment" data-i18n="integer_operations">INT32, INT16, INT8</li>
                         </ul>
                     </ul>
+
+                    <aside class="notes">
+                        So why do we use Tsetlin Machine instead of neural networks? Have you ever thought about this question? Are neural networks suitable for MCUs?
+                        <br/>
+                        Neural networks are popular because it works for many applications, including image classification, object detection, and large language models. However, embedded systems have limited computational resources and memory. If the hardware runs Linux, it means it has sufficient memory. In that case,  it's OK to run neural networks on Linux. But for MCUs, is it a real good idea to run Neural Networks on it?
+                        <br/>
+                        For example, when I say "Neural Networks", what is the first thing that comes to your mind? For me, it's GPU. Neural Networks are computation intensive, and they need GPUs to accelerate training. Neural Networks are also memory hungry, and they require floating point operations. However, MCU don't have GPUs, and they have limited memory, 200 KB of RAM is already quite a lot for MCUs. They are not good at floating point operations, either. So, as you can see here, what neural networks need, MCUs don't have.
+                        <br/>
+                        Now if I ask the question again, are neural networks suitable for MCUs? Probably not. This is why we need an alternative, which is Tsetlin Machine.
                 </section>
 
                 <section id="Q2">
@@ -103,7 +117,7 @@
                     <img width=80% id="emg" src="images/emg_en.png" class="fragment" />
 
                     <aside class="notes">
-                        The main reason is data distribution shift. If we train a model on a PC and then deploy the model on MCUs, the real-world data distribution may not be the same as the training data for several reasons: the environment is evolving, sensors will degrade over time, and people are different. For example, in the EMG dataset, the project Shengyu has been working on. The sensor measures the electrical activity of muscles and predicts the hand gesture. If we train the model on the server using data from a group of users, the model accuracy is 85%, but if we continue to train the model on the device using personal data, the accuracy can be improved to 96%. If we personalize the model for each user, we can achieve much better performance. The problem here is personal data is sensitive, and it cannot be uploaded to the server for training. We need to train on the device.
+                        The main reason is data distribution shift. If we train a model on a PC and then deploy the model on MCUs, the real-world data distribution may not be the same as the training data for several reasons: the environment is evolving, sensors will degrade over time, and people are different. For example, in the EMG dataset, the sensor measures the electrical activity of muscles and predicts the hand gesture. If we train the model on the server using data from a group of users, the model accuracy is 85%, but if we continue to train the model on the device using personal data, the accuracy can be improved to 96%. If we personalize the model for each user, we can achieve much better performance. The problem here is personal data  are sensitive, and it cannot be uploaded to the server for training. We need to train on the device.
                     </aside>
                 </section>
 
@@ -167,6 +181,9 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <aside class="notes">
+                    </aside>
                 </section>
 
                 <section id="TM">
